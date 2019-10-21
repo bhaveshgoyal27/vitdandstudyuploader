@@ -51,18 +51,5 @@ def remove(connection):
     if connection in list_of_clients:
         list_of_clients.remove(connection)
 
-while True:
-    conn, addr = server.accept()
-    """
-    Accepts a connection request and stores two parameters, conn which is a socket object for that user, and addr which contains
-    the IP address of the client that just connected
-    """
-    list_of_clients.append(conn)
-    print (addr[0] + " connected")
-    #maintains a list of clients for ease of broadcasting a message to all available people in the chatroom
-    #Prints the address of the person who just connected
-    start_new_thread(clientthread,(conn,addr))
-    #creates and individual thread for every user that connects
-
 conn.close()
 server.close()
